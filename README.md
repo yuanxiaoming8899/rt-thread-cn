@@ -1,153 +1,184 @@
-<p align="center">
-<img src="documentation/figures/logo.png" width="60%" >
+<div class="Box-sc-g0xbh4-0 bJMeLZ js-snippet-clipboard-copy-unpositioned" data-hpc="true"><article class="markdown-body entry-content container-lg" itemprop="text"><p align="center" dir="auto">
+<a target="_blank" rel="noopener noreferrer" href="/RT-Thread/rt-thread/blob/master/documentation/figures/logo.png"><img src="/RT-Thread/rt-thread/raw/master/documentation/figures/logo.png" width="60%" style="max-width: 100%;"></a>
 </p>
-
-**English** | [中文](README_zh.md) | [Español](README_es.md) | [Deutsch](README_de.md)
-
-[![GitHubStars](https://img.shields.io/github/stars/RT-Thread/rt-thread?style=flat-square&logo=GitHub)](https://github.com/RT-Thread/rt-thread/stargazers)
-[![GiteeStars](https://gitee.com/rtthread/rt-thread/badge/star.svg?theme=gvp)](https://gitee.com/rtthread/rt-thread/stargazers)
-[![GitHub](https://img.shields.io/github/license/RT-Thread/rt-thread.svg)](https://github.com/RT-Thread/rt-thread/blob/master/LICENSE)
-[![GitHub release](https://img.shields.io/github/release/RT-Thread/rt-thread.svg)](https://github.com/RT-Thread/rt-thread/releases)
-[![Gitter](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/RT-Thread/rt-thread?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
-[![GitHub pull-requests](https://img.shields.io/github/issues-pr/RT-Thread/rt-thread.svg)](https://github.com/RT-Thread/rt-thread/pulls)
-[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat)](https://github.com/RT-Thread/rt-thread/pulls)
-
-# RT-Thread
-
-RT-Thread was born in 2006, it is an open source, neutral, and community-based real-time operating system (RTOS).
-
-RT-Thread is mainly written in C language, easy to understand and easy to port(can be quickly port to a wide range of mainstream MCUs and module chips). It applies object-oriented programming methods to real-time system design, making the code elegant, structured, modular, and very tailorable.
-
-RT-Thread has Standard version and Nano version. For resource-constrained microcontroller (MCU) systems, the Nano version that requires only 3KB Flash and 1.2KB RAM memory resources can be tailored with easy-to-use tools. For resource-rich IoT devices, RT-Thread can use the on-line software package management tool, together with system configuration tools, to achieve intuitive and rapid modular cutting, seamlessly import rich software packages; thus, achieving complex functions like Android's graphical interface and touch sliding effects, smart voice interaction effects, and so on.
-
-## RT-Thread Architecture
-
-RT-Thread has not only a real-time kernel, but also rich components. Its architecture is as follows:
-
-
-![architecture](./documentation/figures/architecture.png)
-
-
-It includes:
-
-- Kernel layer: RT-Thread kernel, the core part of RT-Thread, includes the implementation of objects in the kernel system, such as multi-threading and its scheduling, semaphore, mailbox, message queue, memory management, timer, etc.; libcpu/BSP (Chip Migration Related Files/Board Support Package) is closely related to hardware and consists of peripheral drivers and CPU porting.
-
-- Components and Service Layer: Components are based on upper-level software on top of the RT-Thread kernel, such as virtual file systems, FinSH command-line interfaces, network frameworks, device frameworks, and more. Its modular design allows for high internal cohesion inside the components and low coupling between components.
-
-- [RT-Thread software package](https://packages.rt-thread.org/en/index.html): A general-purpose software component running on the RT-Thread IoT operating system platform for different application areas, consisting of description information, source code or library files. RT-Thread provides an open package platform with officially available or developer-supplied packages that provide developers with a choice of reusable packages that are an important part of the RT-Thread ecosystem. The package ecosystem is critical to the choice of an operating system because these packages are highly reusable and modular, making it easy for application developers to build the system they want in the shortest amount of time. RT-Thread supports 450+ software packages.
-
-## RT-Thread Features
-
-- Designed for resource-constrained devices, the minimum kernel requires only 1.2KB of RAM and 3 KB of Flash.
-- A variety of standard interfaces, such as POSIX, CMSIS, C++ application environment.
-- Has rich components and a prosperous and fast growing package ecosystem.
-- Elegant code style, easy to use, read and master.
-- High Scalability. RT-Thread has high-quality scalable software architecture, loose coupling, modularity, is easy to tailor and expand.
-- Supports high-performance applications.
-- Supports all mainstream compiling tools such as GCC, Keil and IAR.
-- Supports a wide range of <a href="https://www.rt-thread.io/board.html">architectures and chips</a>.
-
-## Code Catalogue
-
-   RT-Thread source code catalog is shown as follow:
-
-| Name          | Description                                             |
-| ------------- | ------------------------------------------------------- |
-| BSP          | Board Support Package based on the porting of various development boards |
-| components    | Components, such as finsh shell, file system, protocol stack etc. |
-| documentation | Related documents, like coding style, doxygen etc.        |
-| examples      | Related sample code                                     |
-| include       | Head files of RT-Thread kernel                           |
-| libcpu        | CPU porting code such as ARM/MIPS/RISC-V etc. |
-| src           | The source files for the RT-Thread kernel. |
-| tools         | The script files for the RT-Thread command build tool. |
-
-RT-Thread has now been ported for nearly 200 development boards, most BSPs support MDK, IAR development environment and GCC compiler, and have provided default MDK and IAR project, which allows users to add their own application code directly based on the project. Each BSP has a similar directory structure, and most BSPs provide a README.md file, which is a markdown-format file that contains the basic introduction of BSP, and introduces how to simply start using BSP.
-
-# Resources
-
-## Supported Architectures
-
-RT-Thread supports many architectures, and has covered the major architectures in current applications. Architecture and chip manufacturer involved:
-
-- **ARM Cortex-M0/M0+**：manufacturers like ST
-- **ARM Cortex-M3**：manufacturers like ST、Winner Micro、MindMotion, ect.
-- **ARM Cortex-M4**：manufacturers like ST、Infineon、Nuvoton、NXP、[Nordic](https://github.com/RT-Thread/rt-thread/tree/master/bsp/nrf5x)、GigaDevice、Realtek、Ambiq Micro, ect.
-- **ARM Cortex-M7**：manufacturers like ST、NXP
-- **ARM Cortex-M23**：manufacturers like GigaDevice
-- **ARM Cortex-M33**：manufacturers like ST
-- **ARM Cortex-R4**
-- **ARM Cortex-A8/A9**：manufacturers like NXP
-- **ARM7**：manufacturers like Samsung
-- **ARM9**：manufacturers like Allwinner、Xilinx 、GOKE
-- **ARM11**：manufacturers like Fullhan
-- **MIPS32**：manufacturers like loongson、Ingenic
-- **RISC-V RV32E/RV32I[F]/RV64[D]**：manufacturers like sifive、[Canaan Kendryte](https://github.com/RT-Thread/rt-thread/tree/master/bsp/k210)、[bouffalo_lab](https://github.com/RT-Thread/rt-thread/tree/master/bsp/bouffalo_lab)、[Nuclei](https://nucleisys.com/)、[T-Head](https://www.t-head.cn/)、[HPMicro](https://github.com/RT-Thread/rt-thread/tree/master/bsp/hpmicro)
-- **ARC**：manufacturers like SYNOPSYS
-- **DSP**：manufacturers like TI
-- **C-Sky**
-- **x86**
-
-## Supported IDE and Compiler
-
-The main IDE/compilers supported by RT-Thread are:
-
-- RT-Thread Studio IDE
-- MDK KEIL
-- IAR
-- GCC
-
-## RT-Thread Studio IDE
-
-[User Manual](https://www.rt-thread.io/document/site/rtthread-studio/um/studio-user-manual/) | [Tutorial Videos](https://youtu.be/ucq5eJgZIQg)
-
-RT-Thread Studio IDE (a.k.a. RT-Studio) is a one-stop intergrated development environment built by RT-Thread team. It has a easy-to-use graphical configuration system and a wealth of software packages and components resources. RT-Studio has the features of project creation, configuration and management,as well as code editing, SDK management, build configuration, debugging configuration, program download and debug. We're looking to make the use of RT-Studio as intuitive as possible, reducing the duplication of work and improving the development efficiency.
-
-![studio](./documentation/figures/studio.gif)
-
-## Env Tool
-
-[User Manual](documentation/env/env.md) | [Tutorial Videos](https://www.youtube.com/watch?v=dEK94o_YoSo)
-
-In the early stage, RT-Thread team also created an auxiliary tool called Env. It is an auxiliary tool with a TUI (Text-based user interface). Developers can use Env tool to configure and generate the GCC, Keil MDK, and IAR projects.
-
-![env](./documentation/figures/env.png)
-
-# Getting Started
-
-[RT-Thread Programming Guide](https://www.rt-thread.io/document/site/tutorial/quick-start/introduction/introduction/) | [RT-Thread Studio IDE](https://www.rt-thread.io/studio.html) | [Kernel Sample](https://github.com/RT-Thread-packages/kernel-sample) | [RT-Thread Beginners Guide](https://www.youtube.com/watch?v=ZMi1O-Rr7yc&list=PLXUV89C_M3G5KVw2IerI-pqApdSM_IaZo)
-
-Based on [STM32F103 BluePill](https://github.com/RT-Thread/rt-thread/tree/master/bsp/stm32/stm32f103-blue-pill) | [Raspberry Pi Pico](https://github.com/RT-Thread/rt-thread/tree/master/bsp/raspberry-pico)
-
-## Simulator
-
-RT-Thread BSP can be compiled directly and downloaded to the corresponding development board for use. In addition, RT-Thread also provides qemu-vexpress-a9 BSP, which can be used without hardware platform. See the getting started guide below for details. Getting Started of QEMU with Env:
-[Windows](documentation/quick-start/quick_start_qemu/quick_start_qemu.md) | [Linux Ubuntu](documentation/quick-start/quick_start_qemu/quick_start_qemu_linux.md) | [Mac OS](documentation/quick-start/quick_start_qemu/quick_start_qemu_macos.md)
-
-# License
-
-RT-Thread follows the Apache License 2.0 free software license. It's completely open-source, can be used in commercial applications for free, does not require the disclosure of code, and has no potential commercial risk. License information and copyright information can generally be seen at the beginning of the code:
-
-```c
-/* Copyright (c) 2006-2018, RT-Thread Development Team
+<p dir="auto"><strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">English</font></font></strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> |</font></font><a href="/RT-Thread/rt-thread/blob/master/README_zh.md"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">中文</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">| </font></font><a href="/RT-Thread/rt-thread/blob/master/README_es.md"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">西班牙语</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">| </font></font><a href="/RT-Thread/rt-thread/blob/master/README_de.md"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">德语</font></font></a></p>
+<p dir="auto"><a href="https://github.com/RT-Thread/rt-thread/stargazers"><img src="https://camo.githubusercontent.com/8ba1453eb0cb5ba0e43e349e0444706b626c08f923d1620a2f05d87077344dfa/68747470733a2f2f696d672e736869656c64732e696f2f6769746875622f73746172732f52542d5468726561642f72742d7468726561643f7374796c653d666c61742d737175617265266c6f676f3d476974487562" alt="GitHub之星" data-canonical-src="https://img.shields.io/github/stars/RT-Thread/rt-thread?style=flat-square&amp;logo=GitHub" style="max-width: 100%;"></a>
+<a href="https://gitee.com/rtthread/rt-thread/stargazers" rel="nofollow"><img src="https://camo.githubusercontent.com/ef8949aaa36480828e8135944f33d4339545c7a9d2dfd126e759d7d46d6e495c/68747470733a2f2f67697465652e636f6d2f72747468726561642f72742d7468726561642f62616467652f737461722e7376673f7468656d653d677670" alt="吉泰之星" data-canonical-src="https://gitee.com/rtthread/rt-thread/badge/star.svg?theme=gvp" style="max-width: 100%;"></a>
+<a href="https://github.com/RT-Thread/rt-thread/blob/master/LICENSE"><img src="https://camo.githubusercontent.com/66514b30efdda0f0b6848fa8b55ccb328d8d03f60a89c6142a08d67295a51fb7/68747470733a2f2f696d672e736869656c64732e696f2f6769746875622f6c6963656e73652f52542d5468726561642f72742d7468726561642e737667" alt="GitHub" data-canonical-src="https://img.shields.io/github/license/RT-Thread/rt-thread.svg" style="max-width: 100%;"></a>
+<a href="https://github.com/RT-Thread/rt-thread/releases"><img src="https://camo.githubusercontent.com/47d2ffc625846eafa63635c1668cbcb0c120eb73d4dd149628e1ac0f706fe933/68747470733a2f2f696d672e736869656c64732e696f2f6769746875622f72656c656173652f52542d5468726561642f72742d7468726561642e737667" alt="GitHub 发布" data-canonical-src="https://img.shields.io/github/release/RT-Thread/rt-thread.svg" style="max-width: 100%;"></a>
+<a href="https://gitter.im/RT-Thread/rt-thread?utm_source=badge&amp;utm_medium=badge&amp;utm_campaign=pr-badge&amp;utm_content=badge" rel="nofollow"><img src="https://camo.githubusercontent.com/2da7039d862cabe847953554272000b86e80b158a0723c9a832720b935df3f43/68747470733a2f2f6261646765732e6769747465722e696d2f4a6f696e253230436861742e737667" alt="吉特" data-canonical-src="https://badges.gitter.im/Join%20Chat.svg" style="max-width: 100%;"></a>
+<a href="https://github.com/RT-Thread/rt-thread/pulls"><img src="https://camo.githubusercontent.com/5734032de0a4d9c55267fded5dc30920a03757dfa82da27a4049e017edfd92f2/68747470733a2f2f696d672e736869656c64732e696f2f6769746875622f6973737565732d70722f52542d5468726561642f72742d7468726561642e737667" alt="GitHub 拉取请求" data-canonical-src="https://img.shields.io/github/issues-pr/RT-Thread/rt-thread.svg" style="max-width: 100%;"></a>
+<a href="https://github.com/RT-Thread/rt-thread/pulls"><img src="https://camo.githubusercontent.com/91dd7f00641477630e6a2c46baeba2e1bf20b98d0257f55ce4ba06dcb5f7c6d2/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f5052732d77656c636f6d652d627269676874677265656e2e7376673f7374796c653d666c6174" alt="欢迎 PR" data-canonical-src="https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat" style="max-width: 100%;"></a></p>
+<h1 tabindex="-1" dir="auto"><a id="user-content-rt-thread" class="anchor" aria-hidden="true" tabindex="-1" href="#rt-thread"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">RT-线程</font></font></h1>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">RT-Thread诞生于2006年，是一个开源、中立、基于社区的实时操作系统（RTOS）。</font></font></p>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">RT-Thread主要采用C语言编写，简单易懂，易于移植（可快速移植到多种主流MCU和模块芯片）。</font><font style="vertical-align: inherit;">它将面向对象的编程方法应用到实时系统设计中，使代码优雅、结构化、模块化，并且可定制性很强。</font></font></p>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">RT-Thread有标准版和纳米版。</font><font style="vertical-align: inherit;">对于资源受限的微控制器 (MCU) 系统，仅需要 3KB 闪存和 1.2KB RAM 内存资源的 Nano 版本可以通过易于使用的工具进行定制。</font><font style="vertical-align: inherit;">针对资源丰富的物联网设备，RT-Thread可以利用在线软件包管理工具，配合系统配置工具，实现直观、快速的模块化切割，无缝导入丰富的软件包；</font><font style="vertical-align: inherit;">从而实现Android的图形界面和触摸滑动效果、智能语音交互效果等复杂功能。</font></font></p>
+<h2 tabindex="-1" dir="auto"><a id="user-content-rt-thread-architecture" class="anchor" aria-hidden="true" tabindex="-1" href="#rt-thread-architecture"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">RT-Thread架构</font></font></h2>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">RT-Thread不仅拥有实时内核，而且拥有丰富的组件。</font><font style="vertical-align: inherit;">其架构如下：</font></font></p>
+<p dir="auto"><a target="_blank" rel="noopener noreferrer" href="/RT-Thread/rt-thread/blob/master/documentation/figures/architecture.png"><img src="/RT-Thread/rt-thread/raw/master/documentation/figures/architecture.png" alt="建筑学" style="max-width: 100%;"></a></p>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">这包括：</font></font></p>
+<ul dir="auto">
+<li>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">内核层：RT-Thread内核，RT-Thread的核心部分，包括内核系统中对象的实现，如多线程及其调度、信号量、邮箱、消息队列、内存管理、定时器等；</font><font style="vertical-align: inherit;">libcpu/BSP（芯片迁移相关文件/板支持包）与硬件密切相关，由外设驱动和CPU移植组成。</font></font></p>
+</li>
+<li>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">组件和服务层：组件基于RT-Thread内核之上的上层软件，例如虚拟文件系统、FinSH命令行界面、网络框架、设备框架等。</font><font style="vertical-align: inherit;">其模块化设计可实现组件内部的高内聚性和组件之间的低耦合性。</font></font></p>
+</li>
+<li>
+<p dir="auto"><a href="https://packages.rt-thread.org/en/index.html" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">RT-Thread软件包</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">：运行在RT-Thread物联网操作系统平台上、针对不同应用领域的通用软件组件，由描述信息、源代码或库文件组成。</font><font style="vertical-align: inherit;">RT-Thread 提供了一个开放的软件包平台，其中包含官方可用或开发人员提供的软件包，为开发人员提供了可重用软件包的选择，这些软件包是 RT-Thread 生态系统的重要组成部分。</font><font style="vertical-align: inherit;">软件包生态系统对于操作系统的选择至关重要，因为这些软件包具有高度可重用性和模块化性，使应用程序开发人员可以轻松地在最短的时间内构建他们想要的系统。</font><font style="vertical-align: inherit;">RT-Thread 支持 450 多个软件包。</font></font></p>
+</li>
+</ul>
+<h2 tabindex="-1" dir="auto"><a id="user-content-rt-thread-features" class="anchor" aria-hidden="true" tabindex="-1" href="#rt-thread-features"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">RT-Thread 特点</font></font></h2>
+<ul dir="auto">
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">专为资源受限的设备而设计，最小内核仅需要 1.2KB RAM 和 3KB 闪存。</font></font></li>
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">多种标准接口，如POSIX、CMSIS、C++应用环境。</font></font></li>
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">拥有丰富的组件和繁荣且快速发展的封装生态系统。</font></font></li>
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">优雅的代码风格，易于使用、阅读和掌握。</font></font></li>
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">高可扩展性。</font><font style="vertical-align: inherit;">RT-Thread具有高质量的可扩展软件架构，松耦合、模块化，易于裁剪和扩展。</font></font></li>
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">支持高性能应用程序。</font></font></li>
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">支持GCC、Keil、IAR等所有主流编译工具。</font></font></li>
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">支持多种</font></font><a href="https://www.rt-thread.io/board.html" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">架构和芯片</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">。</font></font></li>
+</ul>
+<h2 tabindex="-1" dir="auto"><a id="user-content-code-catalogue" class="anchor" aria-hidden="true" tabindex="-1" href="#code-catalogue"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">代码目录</font></font></h2>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">RT-Thread源码目录如下：</font></font></p>
+<table>
+<thead>
+<tr>
+<th><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">姓名</font></font></th>
+<th><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">描述</font></font></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">中央银行</font></font></td>
+<td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">基于各种开发板移植的板级支持包</font></font></td>
+</tr>
+<tr>
+<td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">成分</font></font></td>
+<td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">组件，如finsh shell、文件系统、协议栈等。</font></font></td>
+</tr>
+<tr>
+<td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">文档</font></font></td>
+<td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">相关文档，如编码风格、doxygen 等。</font></font></td>
+</tr>
+<tr>
+<td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">例子</font></font></td>
+<td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">相关示例代码</font></font></td>
+</tr>
+<tr>
+<td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">包括</font></font></td>
+<td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">RT-Thread内核头文件</font></font></td>
+</tr>
+<tr>
+<td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">库CPU</font></font></td>
+<td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">CPU移植代码如ARM/MIPS/RISC-V等</font></font></td>
+</tr>
+<tr>
+<td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">源代码</font></font></td>
+<td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">RT-Thread 内核的源文件。</font></font></td>
+</tr>
+<tr>
+<td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">工具</font></font></td>
+<td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">RT-Thread 命令构建工具的脚本文件。</font></font></td>
+</tr>
+</tbody>
+</table>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">RT-Thread现已移植近200款开发板，大部分BSP支持MDK、IAR开发环境和GCC编译器，并提供了默认的MDK和IAR工程，允许用户直接基于工程添加自己的应用代码。</font><font style="vertical-align: inherit;">每个BSP都有相似的目录结构，大多数BSP都提供了一个README.md文件，这是一个markdown格式的文件，包含了BSP的基本介绍，并介绍了如何简单开始使用BSP。</font></font></p>
+<h1 tabindex="-1" dir="auto"><a id="user-content-resources" class="anchor" aria-hidden="true" tabindex="-1" href="#resources"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">资源</font></font></h1>
+<h2 tabindex="-1" dir="auto"><a id="user-content-supported-architectures" class="anchor" aria-hidden="true" tabindex="-1" href="#supported-architectures"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">支持的架构</font></font></h2>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">RT-Thread支持多种架构，已经覆盖了当前应用中的主流架构。</font><font style="vertical-align: inherit;">涉及架构及芯片厂商：</font></font></p>
+<ul dir="auto">
+<li><strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">ARM Cortex-M0/M0+</font></font></strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">：ST等厂家</font></font></li>
+<li><strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">ARM Cortex-M3</font></font></strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">：ST、Winner Micro、MindMotion等厂家</font></font></li>
+<li><strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">ARM Cortex-M4 ：ST、Infineon、Nuvoton、NXP、 </font></font></strong><font style="vertical-align: inherit;"></font><a href="https://github.com/RT-Thread/rt-thread/tree/master/bsp/nrf5x"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Nordic</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">、GigaDevice、Realtek、Ambiq Micro等</font><font style="vertical-align: inherit;">厂商</font></font></li>
+<li><strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">ARM Cortex-M7</font></font></strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">：ST、NXP等厂家</font></font></li>
+<li><strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">ARM Cortex-M23</font></font></strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">：兆易创新等厂商</font></font></li>
+<li><strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">ARM Cortex-M33</font></font></strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">：ST等厂家</font></font></li>
+<li><strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">ARM Cortex-R4</font></font></strong></li>
+<li><strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">ARM Cortex-A8/A9</font></font></strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">：NXP等厂商</font></font></li>
+<li><strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">ARM7</font></font></strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">：三星等厂商</font></font></li>
+<li><strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">ARM9</font></font></strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">：全志、Xilinx、GOKE等厂家</font></font></li>
+<li><strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">ARM11</font></font></strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">：富瀚等厂家</font></font></li>
+<li><strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">MIPS32</font></font></strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">：龙芯、君正等厂家</font></font></li>
+<li><strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">RISC-V RV32E/RV32I[F]/RV64[D]</font></font></strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">：si Five、</font></font><a href="https://github.com/RT-Thread/rt-thread/tree/master/bsp/k210"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Canaan Kendryte</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">、</font></font><a href="https://github.com/RT-Thread/rt-thread/tree/master/bsp/bouffalo_lab"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">bouffalo_lab</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">、</font></font><a href="https://nucleisys.com/" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Nuclei</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">、</font></font><a href="https://www.t-head.cn/" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">T-Head</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">、</font></font><a href="https://github.com/RT-Thread/rt-thread/tree/master/bsp/hpmicro"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">HPMicro 等厂商</font></font></a></li>
+<li><strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">ARC</font></font></strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">：SYNOPSYS等厂家</font></font></li>
+<li><strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">DSP</font></font></strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">：TI等厂家</font></font></li>
+<li><strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">中天</font></font></strong></li>
+<li><strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">x86</font></font></strong></li>
+</ul>
+<h2 tabindex="-1" dir="auto"><a id="user-content-supported-ide-and-compiler" class="anchor" aria-hidden="true" tabindex="-1" href="#supported-ide-and-compiler"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">支持的 IDE 和编译器</font></font></h2>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">RT-Thread 支持的主要 IDE/编译器有：</font></font></p>
+<ul dir="auto">
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">RT-Thread Studio IDE</font></font></li>
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">MDK凯尔</font></font></li>
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">IAR</font></font></li>
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">海湾合作委员会</font></font></li>
+</ul>
+<h2 tabindex="-1" dir="auto"><a id="user-content-rt-thread-studio-ide" class="anchor" aria-hidden="true" tabindex="-1" href="#rt-thread-studio-ide"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">RT-Thread Studio IDE</font></font></h2>
+<p dir="auto"><a href="https://www.rt-thread.io/document/site/rtthread-studio/um/studio-user-manual/" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">用户手册</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">| </font></font><a href="https://youtu.be/ucq5eJgZIQg" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">教程视频</font></font></a></p>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">RT-Thread Studio IDE（又名RT-Studio）是RT-Thread团队打造的一站式集成开发环境。</font><font style="vertical-align: inherit;">拥有简单易用的图形化配置系统和丰富的软件包及组件资源。</font><font style="vertical-align: inherit;">RT-Studio具有工程创建、配置和管理功能，以及代码编辑、SDK管理、编译配置、调试配置、程序下载和调试等功能。</font><font style="vertical-align: inherit;">我们希望让RT-Studio的使用尽可能直观，减少重复工作，提高开发效率。</font></font></p>
+<p dir="auto"><animated-image data-catalyst=""><a target="_blank" rel="noopener noreferrer" href="/RT-Thread/rt-thread/blob/master/documentation/figures/studio.gif" data-target="animated-image.originalLink"><img src="/RT-Thread/rt-thread/raw/master/documentation/figures/studio.gif" alt="工作室" style="max-width: 100%; display: inline-block;" data-target="animated-image.originalImage"></a>
+      <span class="AnimatedImagePlayer" data-target="animated-image.player" hidden="">
+        <a data-target="animated-image.replacedLink" class="AnimatedImagePlayer-images" href="https://github.com/RT-Thread/rt-thread/blob/master/documentation/figures/studio.gif" target="_blank">
+          
+        <span data-target="animated-image.imageContainer">
+            <img data-target="animated-image.replacedImage" alt="工作室" class="AnimatedImagePlayer-animatedImage" src="https://github.com/RT-Thread/rt-thread/raw/master/documentation/figures/studio.gif" style="display: block; opacity: 1;">
+          <canvas class="AnimatedImagePlayer-stillImage" aria-hidden="true" width="814" height="410"></canvas></span></a>
+        <button data-target="animated-image.imageButton" class="AnimatedImagePlayer-images" tabindex="-1" aria-label="游戏工作室" hidden=""></button>
+        <span class="AnimatedImagePlayer-controls" data-target="animated-image.controls" hidden="">
+          <button data-target="animated-image.playButton" class="AnimatedImagePlayer-button" aria-label="游戏工作室">
+            <svg aria-hidden="true" focusable="false" class="octicon icon-play" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M4 13.5427V2.45734C4 1.82607 4.69692 1.4435 5.2295 1.78241L13.9394 7.32507C14.4334 7.63943 14.4334 8.36057 13.9394 8.67493L5.2295 14.2176C4.69692 14.5565 4 14.1739 4 13.5427Z">
+            </path></svg>
+            <svg aria-hidden="true" focusable="false" class="octicon icon-pause" width="16" height="16" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+              <rect x="4" y="2" width="3" height="12" rx="1"></rect>
+              <rect x="9" y="2" width="3" height="12" rx="1"></rect>
+            </svg>
+          </button>
+          <a data-target="animated-image.openButton" aria-label="在新窗口中打开工作室" class="AnimatedImagePlayer-button" href="https://github.com/RT-Thread/rt-thread/blob/master/documentation/figures/studio.gif" target="_blank">
+            <svg aria-hidden="true" class="octicon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" width="16" height="16">
+              <path fill-rule="evenodd" d="M10.604 1h4.146a.25.25 0 01.25.25v4.146a.25.25 0 01-.427.177L13.03 4.03 9.28 7.78a.75.75 0 01-1.06-1.06l3.75-3.75-1.543-1.543A.25.25 0 0110.604 1zM3.75 2A1.75 1.75 0 002 3.75v8.5c0 .966.784 1.75 1.75 1.75h8.5A1.75 1.75 0 0014 12.25v-3.5a.75.75 0 00-1.5 0v3.5a.25.25 0 01-.25.25h-8.5a.25.25 0 01-.25-.25v-8.5a.25.25 0 01.25-.25h3.5a.75.75 0 000-1.5h-3.5z"></path>
+            </svg>
+          </a>
+        </span>
+      </span></animated-image></p>
+<h2 tabindex="-1" dir="auto"><a id="user-content-env-tool" class="anchor" aria-hidden="true" tabindex="-1" href="#env-tool"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">环境工具</font></font></h2>
+<p dir="auto"><a href="/RT-Thread/rt-thread/blob/master/documentation/env/env.md"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">用户手册</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">| </font></font><a href="https://www.youtube.com/watch?v=dEK94o_YoSo" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">教程视频</font></font></a></p>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">早期，RT-Thread团队还创建了一个名为Env的辅助工具。</font><font style="vertical-align: inherit;">它是一个带有 TUI（基于文本的用户界面）的辅助工具。</font><font style="vertical-align: inherit;">开发人员可以使用Env工具来配置和生成GCC、Keil MDK和IAR项目。</font></font></p>
+<p dir="auto"><a target="_blank" rel="noopener noreferrer" href="/RT-Thread/rt-thread/blob/master/documentation/figures/env.png"><img src="/RT-Thread/rt-thread/raw/master/documentation/figures/env.png" alt="环境" style="max-width: 100%;"></a></p>
+<h1 tabindex="-1" dir="auto"><a id="user-content-getting-started" class="anchor" aria-hidden="true" tabindex="-1" href="#getting-started"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">入门</font></font></h1>
+<p dir="auto"><a href="https://www.rt-thread.io/document/site/tutorial/quick-start/introduction/introduction/" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">RT-Thread 编程指南</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">| </font></font><a href="https://www.rt-thread.io/studio.html" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">RT-Thread Studio IDE</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> | </font></font><a href="https://github.com/RT-Thread-packages/kernel-sample"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">内核示例</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">| </font></font><a href="https://www.youtube.com/watch?v=ZMi1O-Rr7yc&amp;list=PLXUV89C_M3G5KVw2IerI-pqApdSM_IaZo" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">RT-Thread 初学者指南</font></font></a></p>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">基于</font></font><a href="https://github.com/RT-Thread/rt-thread/tree/master/bsp/stm32/stm32f103-blue-pill"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">STM32F103 BluePill</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> | </font></font><a href="https://github.com/RT-Thread/rt-thread/tree/master/bsp/raspberry-pico"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">树莓派 Pico</font></font></a></p>
+<h2 tabindex="-1" dir="auto"><a id="user-content-simulator" class="anchor" aria-hidden="true" tabindex="-1" href="#simulator"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">模拟器</font></font></h2>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">RT-Thread BSP可以直接编译并下载到相应的开发板使用。</font><font style="vertical-align: inherit;">此外，RT-Thread还提供了qemu-vexpress-a9 BSP，无需硬件平台即可使用。</font><font style="vertical-align: inherit;">有关详细信息，请参阅下面的入门指南。</font><font style="vertical-align: inherit;">使用 Env 开始使用 QEMU：
+ </font></font><a href="/RT-Thread/rt-thread/blob/master/documentation/quick-start/quick_start_qemu/quick_start_qemu.md"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Windows</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> | </font></font><a href="/RT-Thread/rt-thread/blob/master/documentation/quick-start/quick_start_qemu/quick_start_qemu_linux.md"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">linux ubuntu</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> | </font></font><a href="/RT-Thread/rt-thread/blob/master/documentation/quick-start/quick_start_qemu/quick_start_qemu_macos.md"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">苹果系统</font></font></a></p>
+<h1 tabindex="-1" dir="auto"><a id="user-content-license" class="anchor" aria-hidden="true" tabindex="-1" href="#license"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">执照</font></font></h1>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">RT-Thread 遵循 Apache License 2.0 自由软件许可证。</font><font style="vertical-align: inherit;">它完全开源，可以免费用于商业应用，不需要公开代码，不存在潜在的商业风险。</font><font style="vertical-align: inherit;">许可信息和版权信息一般可以在代码开头看到：</font></font></p>
+<div class="highlight highlight-source-c notranslate position-relative overflow-auto" dir="auto"><pre><span class="pl-c">/* Copyright (c) 2006-2018, RT-Thread Development Team</span>
+<span class="pl-c"> *</span>
+<span class="pl-c"> * SPDX-License-Identifier: Apache-2.0</span>
+<span class="pl-c"> * ...</span>
+<span class="pl-c"> */</span></pre><div class="zeroclipboard-container">
+    <clipboard-copy aria-label="Copy" class="ClipboardButton btn btn-invisible js-clipboard-copy m-2 p-0 tooltipped-no-delay d-flex flex-justify-center flex-items-center" data-copy-feedback="Copied!" data-tooltip-direction="w" value="/* Copyright (c) 2006-2018, RT-Thread Development Team
  *
  * SPDX-License-Identifier: Apache-2.0
  * ...
- */
-```
-
-# Community
-
-RT-Thread is very grateful for the support from all community developers, and if you have any ideas, suggestions or questions in the process of using RT-Thread, RT-Thread can be reached by the following means, and we are also updating RT-Thread in real time on these channels. At the same time, any questions can be asked in the [issue section of RT-Thread repository](https://github.com/RT-Thread/rt-thread/issues) or [RT-Thread forum](https://club.rt-thread.io/), and community members will answer them.
-
-[Website](https://www.rt-thread.io) | [Github](https://github.com/RT-Thread/rt-thread) | [Twitter](https://twitter.com/rt_thread) | [LinkedIn](https://www.linkedin.com/company/rt-thread-iot-os/posts/?feedView=all) | [Youtube](https://www.youtube.com/channel/UCdDHtIfSYPq4002r27ffqPw) | [Facebook](https://www.facebook.com/RT-Thread-IoT-OS-110395723808463/?modal=admin_todo_tour) | [Medium](https://rt-thread.medium.com/)
-
-# Contribution
-
-If you are interested in RT-Thread and want to join in the development of RT-Thread and become a code contributor,please refer to the [Code Contribution Guide](documentation/contribution_guide/contribution_guide.md).
-
-## Thanks for the following contributors!
-
+ */" tabindex="0" role="button">
+      <svg aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16" data-view-component="true" class="octicon octicon-copy js-clipboard-copy-icon">
+    <path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path>
+</svg>
+      <svg aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16" data-view-component="true" class="octicon octicon-check js-clipboard-check-icon color-fg-success d-none">
+    <path d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0Z"></path>
+</svg>
+    </clipboard-copy>
+  </div></div>
+<h1 tabindex="-1" dir="auto"><a id="user-content-community" class="anchor" aria-hidden="true" tabindex="-1" href="#community"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">社区</font></font></h1>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">RT-Thread非常感谢所有社区开发者的支持，如果您在使用RT-Thread的过程中有任何想法、建议或者问题，可以通过以下方式联系RT-Thread，我们也在更新RT - 这些频道上的实时话题。</font><font style="vertical-align: inherit;">同时，有任何问题都可以在</font></font><a href="https://github.com/RT-Thread/rt-thread/issues"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">RT-Thread存储库</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">或</font></font><a href="https://club.rt-thread.io/" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">RT-Thread论坛</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">的问题部分提出，社区成员将予以解答。</font></font></p>
+<p dir="auto"><a href="https://www.rt-thread.io" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">网站</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">| </font></font><a href="https://github.com/RT-Thread/rt-thread"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">GitHub</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> | </font></font><a href="https://twitter.com/rt_thread" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">推特</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">| </font></font><a href="https://www.linkedin.com/company/rt-thread-iot-os/posts/?feedView=all" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">领英</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">| </font></font><a href="https://www.youtube.com/channel/UCdDHtIfSYPq4002r27ffqPw" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Youtube</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> | </font></font><a href="https://www.facebook.com/RT-Thread-IoT-OS-110395723808463/?modal=admin_todo_tour" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">脸书</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">| </font></font><a href="https://rt-thread.medium.com/" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">中等的</font></font></a></p>
+<h1 tabindex="-1" dir="auto"><a id="user-content-contribution" class="anchor" aria-hidden="true" tabindex="-1" href="#contribution"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">贡献</font></font></h1>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">如果您对RT-Thread感兴趣，想参与RT-Thread的开发并成为代码贡献者，请参考</font></font><a href="/RT-Thread/rt-thread/blob/master/documentation/contribution_guide/contribution_guide.md"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">代码贡献指南</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">。</font></font></p>
+<h2 tabindex="-1" dir="auto"><a id="user-content-thanks-for-the-following-contributors" class="anchor" aria-hidden="true" tabindex="-1" href="#thanks-for-the-following-contributors"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">感谢以下贡献者！</font></font></h2>
 <a href="https://github.com/RT-Thread/rt-thread/graphs/contributors">
-  <img src="https://contrib.rocks/image?repo=RT-Thread/rt-thread" />
+  <img src="https://camo.githubusercontent.com/22a10a303cdaaa84feac363144561ecedacfe2c6b8baadf87c541ab39e936045/68747470733a2f2f636f6e747269622e726f636b732f696d6167653f7265706f3d52542d5468726561642f72742d746872656164" data-canonical-src="https://contrib.rocks/image?repo=RT-Thread/rt-thread" style="max-width: 100%;">
 </a>
+</article></div>
